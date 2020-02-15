@@ -30,8 +30,6 @@ namespace BooksCatalogueAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ICollection<Review>>> GetReview(int id)
         {
-            //var review = await _context.Review.FindAsync(id);
-
             var review = await _context.Review.Where(e => e.BookId == id).ToListAsync();
 
             if (review == null)

@@ -37,14 +37,6 @@ namespace BooksCatalogueAPI.Controllers
         public async Task<ActionResult<Book>> GetBook(int id)
         {
             var book = await _context.Book.FindAsync(id);
-            /*var student = _context.Review
-                    .SqlQuery("Select * from Students where StudentId=@id",
-                              new SqlParameter("@id", 1))
-                    .FirstOrDefault();*/
-
-            /*var studentList = _context.Review
-                        .SqlQuery("Select * from Students")
-                        .ToList<Review>();*/
 
             if (book == null)
             {
@@ -100,15 +92,6 @@ namespace BooksCatalogueAPI.Controllers
         // POST: api/Books
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        /*[HttpPost]
-        public async Task<ActionResult<Book>> PostBook(Book book)
-        {
-            _context.Book.Add(book);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetBook", new { id = book.Id }, book);
-        }*/
-
         [HttpPost]
         public async Task<ActionResult<Book>> PostBook([FromForm]BookViewModel book)
         {
