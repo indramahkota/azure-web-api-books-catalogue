@@ -28,9 +28,11 @@ namespace BooksCatalogueAPI.Controllers
 
         // GET: api/Reviews/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Review>> GetReview(int id)
+        public async Task<ActionResult<ICollection<Review>>> GetReview(int id)
         {
-            var review = await _context.Review.FindAsync(id);
+            //var review = await _context.Review.FindAsync(id);
+
+            var review = await _context.Review.Where(e => e.BookId == id).ToListAsync();
 
             if (review == null)
             {
@@ -76,17 +78,9 @@ namespace BooksCatalogueAPI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Review>> PostReview(Review review)
+        public async Task<ActionResult<Review>> PostReview([FromForm]Review review)
         {
-            var newReview = new Review
-            {
-                BookId = review.BookId,
-                ReviewerName = review.ReviewerName,
-                Rating = review.Rating,
-                Comment = review.Comment
-            };
-
-            _context.Review.Add(newReview);
+            _context.Review.Add(review);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetReview", new { id = review.Id }, review);
