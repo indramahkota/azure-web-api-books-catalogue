@@ -151,6 +151,7 @@ namespace BooksCatalogueAPI.Controllers
         public async Task<ActionResult<Book>> DeleteBook(int id)
         {
             var book = await _context.Book.FindAsync(id);
+
             if (book == null)
             {
                 return NotFound();
