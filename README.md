@@ -1,1 +1,2 @@
 # Book Catalogue API (C#)
+[![GitHub](https://img.shields.io/github/license/indramahkota/azure-web-api-books-catalogue?color=blue)](https://github.com/indramahkota/azure-web-api-books-catalogue/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/indramahkota/azure-web-api-books-catalogue)](https://github.com/indramahkota/azure-web-api-books-catalogue/stargazers)  [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
